@@ -46,3 +46,19 @@ O sistema é executado em duas etapas principais, utilizando as estruturas de re
 
 ## Como Compilar e Executar
 
+> Nota: Este método só funciona no Windows
+ 
+1. Certifique-se de ter um compilador C instalado (como o **GCC**).
+2. Abra o terminal na pasta onde o arquivo `monitoramento.c` está localizado.
+3. Compile o arquivo 
+   ```bash
+   gcc -Wall -Wextra monitoramento.c -o monitoramento 
+4. Execute  arquivo gerado `monitoramento.exe`
+ 
+### Ou
+
+1. Copie o código do arquivo `monitoramento.c`.
+2. Abra um compilador de c online [OnlineGDB](https://www.onlinegdb.com/online_c_compiler)
+3. Apague todo o código inicial.
+4. Cole o código do `monitoramento.c`.
+5. Execute o programa apertando F9. 
