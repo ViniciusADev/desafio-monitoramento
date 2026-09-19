@@ -33,7 +33,14 @@ O sistema é executado em duas etapas principais, utilizando as estruturas de re
 
 ## Requisitos do Sistema e Estruturas Utilizadas
 
-Tabela
+| Requisito / Conceito | Implementação no Código |
+| :--- | :--- |
+| **Entrada e Saída** | Utilização da biblioteca `<stdio.h>` para entrada (`scanf`/`getchar`) e exibição no terminal (`printf`). |
+| **Estruturas de Repetição** | `do...while` para configuração do limite e `while` para o funcionamento do monitoramento contínuo. |
+| **Estruturas Condicionais** | `if...else` para validação de faixas, atualização de maior/menor e controle do contador de alertas. |
+| **Modularização** | Função dedicada `lerEntrada_float` responsável pela  leitura e tratamento de erros. |
+| **Conversão de Tipos** | `(float)` no cálculo de percentuais para evitar divisão inteira. |
+
 
 ---
 
