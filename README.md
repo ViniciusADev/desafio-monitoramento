@@ -1,1 +1,41 @@
+# Sistema de Monitoramento de Temperatura Industrial em C
+
+**Aluno:** Vinícius Alves
+
+**Disciplina:** Algoritmos e pensamento computacional
+
+**Professora**: Profa. Karla Sartin
+
+**Título do Projeto**: monitoramento.c
+
+---
+
+## Objetivo do Programa
+
+O objetivo deste projeto é o desenvolvimento de um  **Sistema de Monitoramento e Controle de Temperatura Industrial em C**, projetado para ler leituras contínuas e aplicar regras automáticas de segurança. O programa oferecer uma interface no terminal com validação e tratamento contra entradas inválidas, cálculo de estatísticas e interrupção automática do sistema ao detectar situações críticas.
+
+---
+
+## Descrição do Funcionamento
+
+O sistema é executado em duas etapas principais, utilizando as estruturas de repetição `do...while` e `while`:
+
+1. **Configuração de Segurança (`do...while`):** O operador define o limite máximo de temperatura segura. O valor deve estar estritamente dentro da faixa de **-50 °C a 150 °C**. O laço obriga a digitação até que um limite válido seja configurado pelo usuário. 
+2. **Monitoramento Contínuo (`while`):** O programa lê continuamente as leituras. O laço permanece ativo até que **3 leituras consecutivas acima do limite** sejam registradas, acionando o desligamento de emergência do programa.
+
+### Principais Recursos e Validações
+
+* **Validação de Entrada com Limpeza de Buffer:** Implementação de função modular de leitura (`lerEntrada_float`) que valida números reais e limpa o *buffer* do teclado (`stdin`), rejeitando entradas com letras ou caracteres misturados ou diferentes do tipo da entrada.
+* **Mecanismo de Alerta Consecutivo:** Contador de alertas de emergência que incrementa a cada temperatura acima do limite e **zera automaticamente** assim que a temperatura retorna ao nível seguro, prevenindo falsos alarmes.
+* **Estatísticas e Relatório Final:** Ao encerrar por emergência, o sistema gera um relatório com total de leituras válidas, maior temperatura registrada, menor temperatura registrada, temperatura média e o percentual de leituras com alerta.
+
+---
+
+## Requisitos do Sistema e Estruturas Utilizadas
+
+Tabela
+
+---
+
+## Como Compilar e Executar
 
