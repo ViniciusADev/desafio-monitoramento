@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-float lerEntrada_float(const char* mensagem) {
+float lerEntrada_float(const char* mensagem) {  // Função para o tratamento de entradas do tipo double (float)
 	float valor;
 	char c;
 
