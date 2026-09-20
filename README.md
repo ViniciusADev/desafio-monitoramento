@@ -43,9 +43,38 @@ O sistema é executado em duas etapas principais, utilizando as estruturas de re
 | **Conversão de Tipos** | `(float)` no cálculo de percentuais para evitar divisão inteira. |
 | **Encerramento Manual (`-999`)** | Parada imediata do monitoramento por solicitação do operador e exibição das estatísticas acumuladas. |
 
+---
+
 ##  Evidências de Teste
 
-pass
+Para validar o funcionamento do sistema e a robustez do tratamento de dados, foram executados 4 cenários de teste cobrindo todas as regras de negócio:
+
+| Teste | Cenário Avaliado | Resultado Esperado |
+| :---: | :--- | :--- |
+| **01** | **Validação de Entradas Inválidas** | Recusa valores fora do limite, caracteres alfabéticos e valores fora do sensor sem travar o sistema. |
+| **02** | **Alertas Não Consecutivos** | Incremento do contador ao ultrapassar o limite e reset automático após normalização da temperatura. |
+| **03** | **Disparo de Emergência** | Interrupção automática e exibição do alerta crítico ao registrar 3 leituras consecutivas acima do limite. |
+| **04** | **Encerramento Manual (`-999`)** | Parada imediata por solicitação do operador com geração das estatísticas dos dados acumulados durante a interação com o sistema. |
+
+
+### Capturas de Tela das Execuções
+
+#### Teste 1: Validação de Entradas Inválidas e Limites
+> Teste de rejeição de letras (`abc`), limites de segurança inválidos (`1000` e `-100`) e limite do sensor (`500`).
+![Teste 1 - Validação de Entradas Inválidas](imgs/teste1.png)
+
+#### Teste 2: Alertas Não Consecutivos (Reset do Contador)
+> Teste da regra de normalização, provando que o contador zera ao ler uma temperatura segura.
+![Teste 2 - Alertas Não Consecutivos](imgs/teste2.png)
+
+#### Teste 3: Disparo de Emergência (3 Alertas Consecutivos)
+> Teste do mecanismo ao atingir 3 estouros de limite seguidos.
+![Teste 3 - Disparo de Emergência](imgs/teste3.png)
+
+#### Teste 4: Encerramento Manual pelo Operador
+> Teste de saída antecipada utilizando o código `-999` exibindo o relatório final.
+![Teste 4 - Encerramento Manual](imgs/teste4.png)
+
 
 
 ---
