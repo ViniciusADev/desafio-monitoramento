@@ -12,7 +12,7 @@
 
 ## Objetivo do Programa
 
-O objetivo deste projeto é o desenvolvimento de um  **Sistema de Monitoramento e Controle de Temperatura Industrial em C**, projetado para ler leituras contínuas e aplicar regras automáticas de segurança. O programa oferecer uma interface no terminal com validação e tratamento contra entradas inválidas, cálculo de estatísticas e interrupção automática do sistema ao detectar situações críticas.
+O objetivo deste projeto é o desenvolvimento de um  **Sistema de Monitoramento e Controle de Temperatura Industrial em C**, projetado para ler leituras contínuas e aplicar regras automáticas de segurança. O programa oferecer uma interface no terminal com validação e tratamento contra entradas inválidas, cálculo de estatísticas, interrupção automática do sistema ao detectar situações críticas e opção de saída inteligente.
 
 ---
 
@@ -21,11 +21,12 @@ O objetivo deste projeto é o desenvolvimento de um  **Sistema de Monitoramento 
 O sistema é executado em duas etapas principais, utilizando as estruturas de repetição `do...while` e `while`:
 
 1. **Configuração de Segurança (`do...while`):** O operador define o limite máximo de temperatura segura. O valor deve estar estritamente dentro da faixa de **-50 °C a 150 °C**. O laço obriga a digitação até que um limite válido seja configurado pelo usuário. 
-2. **Monitoramento Contínuo (`while`):** O programa lê continuamente as leituras. O laço permanece ativo até que **3 leituras consecutivas acima do limite** sejam registradas, acionando o desligamento de emergência do programa.
+2. **Monitoramento Contínuo (`while`):** O programa lê continuamente as leituras. O laço permanece ativo até que **3 leituras consecutivas acima do limite** sejam registradas, acionando o desligamento de emergência do programa ou caso o usuário deseja encerra o programa casa haja valores ele irá mostra as tabelas como os valores digitados e fecha caso contrário ele irá fechar mostrando que nenhuma valor foi digitado.
 
 ### Principais Recursos e Validações
 
 * **Validação de Entrada com Limpeza de Buffer:** Implementação de função modular de leitura (`lerEntrada_float`) que valida números reais e limpa o *buffer* do teclado (`stdin`), rejeitando entradas com letras ou caracteres misturados ou diferentes do tipo da entrada.
+* **Encerramento Manual:** Permite ao operador finalizar a medição a qualquer momento digitando `-999`.
 * **Mecanismo de Alerta Consecutivo:** Contador de alertas de emergência que incrementa a cada temperatura acima do limite e **zera automaticamente** assim que a temperatura retorna ao nível seguro, prevenindo falsos alarmes.
 * **Estatísticas e Relatório Final:** Ao encerrar por emergência, o sistema gera um relatório com total de leituras válidas, maior temperatura registrada, menor temperatura registrada, temperatura média e o percentual de leituras com alerta.
 
@@ -40,6 +41,11 @@ O sistema é executado em duas etapas principais, utilizando as estruturas de re
 | **Estruturas Condicionais** | `if...else` para validação de faixas, atualização de maior/menor e controle do contador de alertas. |
 | **Modularização** | Função dedicada `lerEntrada_float` responsável pela  leitura e tratamento de erros. |
 | **Conversão de Tipos** | `(float)` no cálculo de percentuais para evitar divisão inteira. |
+| **Encerramento Manual (`-999`)** | Parada imediata do monitoramento por solicitação do operador e exibição das estatísticas acumuladas. |
+
+##  Evidências de Teste
+
+pass
 
 
 ---
